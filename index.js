@@ -28,11 +28,15 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   Study the code for counter1 and counter2, then answer the questions below.
   
   1. What is the difference between counter1 and counter2?
-  
+  In counter1 count is a local variable, while in counter2 count is a global variable.
+  counter1 has a nested function and variable within the scope of the function as well as a 
   2. Which of the two uses a closure? How can you tell?
+counter 1 uses a closure because the inner function counter() has to reach outside of its scope to access the variable let nested within an outer function counterMaker().  counter2 doesn't use a closure because the variable let count is globally scoped along with itself. However whenever a function is declared a closure is created
   
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  
+     Scenario counter1 would be preferable if you wanted the variable to be private and function scoped. Also storing the function counterMaker within a global variable makes it much easier and semantic to reuse that function while keeping its inner data private.
+     counter2 is simpler to write, read and use. It is globally scoped so I suppose if you just needed a simple way to keep score with a counter the function can reach right out to the global scope and use it to increment.
 */
 
 // counter1 code
